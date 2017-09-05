@@ -66,23 +66,22 @@
     <!--   <property name="fileExtensions" value="java"/> -->
     <!-- </module> -->
 
-    <module name="SuppressWithNearbyCommentFilter">
-        <property name="commentFormat" value="CHECKSTYLE IGNORE (\w+) FOR NEXT (\d+) LINES"/>
-        <property name="checkFormat" value="$1"/>
-        <property name="influenceFormat" value="$2"/>
-    </module>
-
-    <module name="SuppressionCommentFilter">
-            <property name="offCommentFormat" value="CHECKSTYLE:([^:]+):OFF"/>
-        <property name="onCommentFormat" value="CHECKSTYLE:([^:]+):ON"/>
-        <property name="checkFormat" value="$1"/>
-    </module>
-
     <module name="SuppressionFilter">
         <property name="file" value="${samedir}/suppressions.xml"/>
     </module>
 
     <module name="TreeWalker">
+        <module name="SuppressWithNearbyCommentFilter">
+            <property name="commentFormat" value="CHECKSTYLE IGNORE (\w+) FOR NEXT (\d+) LINES"/>
+            <property name="checkFormat" value="$1"/>
+            <property name="influenceFormat" value="$2"/>
+        </module>
+
+        <module name="SuppressionCommentFilter">
+            <property name="offCommentFormat" value="CHECKSTYLE:([^:]+):OFF"/>
+            <property name="onCommentFormat" value="CHECKSTYLE:([^:]+):ON"/>
+            <property name="checkFormat" value="$1"/>
+        </module>
 
         <module name="FileContentsHolder"/>
 
@@ -166,7 +165,7 @@
         </module>
 
         <module name="EmptyBlock">
-            <property name="option" value="stmt"/>
+            <property name="option" value="statement"/>
             <property name="tokens" value="LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_IF, LITERAL_FOR, LITERAL_TRY, LITERAL_WHILE, INSTANCE_INIT, STATIC_INIT"/>
         </module>
         <module name="EmptyBlock">
